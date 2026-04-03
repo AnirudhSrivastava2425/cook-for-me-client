@@ -1,0 +1,13 @@
+.sidebar-wrapper{
+    background-color: rgba(206, 206, 206, 0.421);
+    padding: 24px;
+    width: 16%;
+    min-height: 600px;
+    max-height: 600px;
+    border: 1px solid white;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    position: sticky;
+    top: 16px;
+
+}

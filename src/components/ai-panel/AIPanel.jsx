@@ -1,0 +1,71 @@
+import React, { useEffect, useState } from 'react'
+import './panel.css'
+import SearchBar from './searchbar/SearchBar'
+import ChatUI from './chat/ChatUI'
+
+const AIPanel = () => {
+    const [search, setSearch] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [conversation, setConversation] = useState([])
+
+    const getRecipe = async () => {
+        let result = await fetch('http://localhost:3000/api/generate-recipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: search
+            })
+        })
+        let recipe = await result.json();
+        return recipe
+    }
+
+    const handleChange = async (value) => {
+
+        let uniqueKey = Date.now();
+
+        if (value.length === 0) {
+            return
+        }
+        setSearch(value)
+        setLoading(true)
+
+
+        let aiResponse = await getRecipe()
+
+
+        setLoading(false)
+
+
+        const newConversation = {
+            id: uniqueKey,
+            userRequest: value,
+            aiResponse: aiResponse.recipe
+        }
+
+        setConversation((prev) => ([...prev, newConversation]))
+        console.log(conversation)
+    }
+
+    return (
+        <div className='panel-wrapper'>
+            <h1>Feeling Hungry?</h1>
+            <h3>Not to worry, chef is here to cook for you.</h3>
+            {
+                conversation.length > 0 && <div className="conversations">
+                    {
+                        conversation.map((items) => (
+                            <ChatUI key={items.id} input={items.userRequest} output={items.aiResponse} />
+                        ))
+                    }
+                </div>
+            }
+
+            <SearchBar val={search} changeMethod={handleChange} />
+        </div>
+    )
+}
+
+export default AIPanel
