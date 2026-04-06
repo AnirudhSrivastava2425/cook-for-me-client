@@ -8,7 +8,7 @@ const AIPanel = () => {
     const [loading, setLoading] = useState(false)
     const [conversation, setConversation] = useState([])
 
-    const getRecipe = async () => {
+    const getRecipe = async (val) => {
         let result = await fetch('http://localhost:3000/api/generate-recipe', {
             method: 'POST',
             headers: {
