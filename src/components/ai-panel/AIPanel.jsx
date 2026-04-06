@@ -8,14 +8,14 @@ const AIPanel = () => {
     const [loading, setLoading] = useState(false)
     const [conversation, setConversation] = useState([])
 
-    const getRecipe = async () => {
+    const getRecipe = async (val) => {
         let result = await fetch('http://localhost:3000/api/generate-recipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: search
+                message: val
             })
         })
         let recipe = await result.json();
@@ -32,8 +32,7 @@ const AIPanel = () => {
         setSearch(value)
         setLoading(true)
 
-
-        let aiResponse = await getRecipe()
+        let aiResponse = await getRecipe(value)
 
 
         setLoading(false)
@@ -46,7 +45,8 @@ const AIPanel = () => {
         }
 
         setConversation((prev) => ([...prev, newConversation]))
-        console.log(conversation)
+        setSearch('')
+        // console.log(conversation)
     }
 
     return (

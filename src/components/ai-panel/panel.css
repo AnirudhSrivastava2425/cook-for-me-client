@@ -5,3 +5,8 @@
     flex-direction: column;
     gap: 8px;
 }
+.conversations{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
