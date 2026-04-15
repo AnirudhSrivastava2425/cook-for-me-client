@@ -5,7 +5,7 @@ import ChatUI from './chat/ChatUI'
 
 const AIPanel = () => {
     const [search, setSearch] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(null)
     const [conversation, setConversation] = useState([])
 
     const getRecipe = async (val) => {
@@ -54,7 +54,11 @@ const AIPanel = () => {
             <div className="intro-text">
                 <h1>Your Perfect Recipe, Every Time</h1>
                 <h3>Turn the ingredients you already have into delicious, personalized recipes based on your taste, mood, and time.</h3>
+                
             </div>
+            {
+                loading && <ChatUI input={search} />
+            }
             {
                 conversation.length > 0 && <div className="conversations">
                     {
