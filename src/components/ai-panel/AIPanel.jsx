@@ -51,8 +51,10 @@ const AIPanel = () => {
 
     return (
         <div className='panel-wrapper'>
-            <h1>Feeling Hungry?</h1>
-            <h3>Not to worry, chef is here to cook for you.</h3>
+            <div className="intro-text">
+                <h1>Your Perfect Recipe, Every Time</h1>
+                <h3>Turn the ingredients you already have into delicious, personalized recipes based on your taste, mood, and time.</h3>
+            </div>
             {
                 conversation.length > 0 && <div className="conversations">
                     {

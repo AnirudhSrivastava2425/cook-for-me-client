@@ -1,6 +1,7 @@
 .chat-ui-wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 24px;
 }
 
@@ -20,29 +21,117 @@
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    border-radius: 8px;
-    max-width: 50%;
-    background-color: yellow;
-    border: 1px solid yellow;
-    color: #2f2f2f;
-}
-
-.oup-msg-bub{
-        background-color: rgba(206, 206, 206, 0.421);
-
-    border: 1px solid white;
-    color: #2f2f2f;
-
-}
-.heading{
-    font-weight: 400;
+    border-radius: 48px;
+    max-width: 100%;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #eee;
     font-size: 14px;
-    color: #2f2f2f;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(4px);
+}
+
+.oup-msg-bub {
+    background-color: #1c1c1c;
+    padding: 20px;
+    color: #eee !;
+    border-radius: 4px;
+    box-shadow: 0 4 24 rgba(255, 255, 255, 0.2);
+    /* border: 1px solid #777; */
+    gap: 36px;
+}
+
+.recipe-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.deitTags {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.deitTags>span {
+    background-color: rgba(51, 51, 51, 0.9);
+    padding: 8px 16px;
+    text-transform: capitalize;
+    border-radius: 48px;
+}
+
+.recipe-section>h2 {
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+}
+
+.recipe-section>h3 {
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+    font-weight: 400;
     text-decoration: underline;
 }
-.opt-items{
-    padding-top: 8px;
-    color: #0c0c0c;
-    font-weight: 400;
-    font-size: 16px;
+
+.stats-boxes {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.stat-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    min-width: 120px;
+    min-height: 88px;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-inner>span {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: white;
+}
+.stat-inner>p{
+    margin: 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.recipe-section>ul{
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 300;
+}
+.instruction-box{
+    border: 1px solid #777;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.instruction-box>span{
+    font-size: 18px;
+    font-weight: 500;
+}
+.instruction-box>p{
+    font-size: 14px;
+    margin: 0;
+    font-weight: 300;
+    line-height: 140%;
 }

@@ -1,12 +1,42 @@
 .panel-wrapper{
-    width: 80%;
+    width: 800px;
     padding: 24px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
+    min-height: 400px;
 }
 .conversations{
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.intro-text{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 600px;
+}
+h1,h3{
+    margin: 0;
+    text-align: center;
+    color: #fcfcfc;
+}
+.intro-text > h1{
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+}
+.intro-text > h3{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+}
+.conversations{
+    width: 100%;
 }

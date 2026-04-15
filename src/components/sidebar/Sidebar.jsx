@@ -1,21 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CloseImg from '../../assets/icon/close.png'
 import './sidebar.css'
 
 const Sidebar = () => {
+    const [sidebarActive, setSidebarActive] = useState(false)
     return (
         <div className='sidebar-wrapper'>
-            <h3>Phase one: Conversation Module.</h3>
-                <br/>
-
-            <p>
-                Hi visitors, this AI cook book is really useful for getting recipies on your prefered diet, mood or ingredients that are present in your pantry. 
-                <br/>
-                <br/>
-                Feel free to test it out, FYI currently the free version of API is not that intelligent so keep your prompts brief. <br/><br/>Thank you
-            </p>
-                <br/>
-                <br/>
-            <h3>Phase two:<br/> work in progress...</h3>
+            <img src={CloseImg} alt="" className="closebtn" />
         </div>
     )
 }

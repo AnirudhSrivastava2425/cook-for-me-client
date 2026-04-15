@@ -1,52 +1,55 @@
 body{
   margin: 0;
   padding: 0;
-  background: url('./assets/spices-bg.webp');
+  background: url('./assets/grey-bg-epicure-ai.webp');
   background-size: cover;
-  background-position: bottom center;
+  background-position: top center;
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
   background-attachment: fixed;
+  letter-spacing: 0.4px;
 }
-#root{
+/* #root{
   min-height: 100vh;
+} */
+html, body, #root {
+  height: 100%;
+  margin: 0;
 }
 h1,h2,h3{
-  margin: 0%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  color: #2f2f2f;
-}
-h1{
-  font-size: 28px;
-  color: #0c0c0c;
-}
-h2{
-  font-size: 24px;
-  color: #2f2f2f;
-}
-h3{
-  font-size: 20px;
-  color: #2f2f2f;
+  margin: 0;
 }
 button{
-  padding: 12px 24px;
+  padding: 12px 20px;
   outline: none;
-  background-color: yellow;
-  border: 1px solid yellow;
-  color: #2f2f2f;
+  background-color: black;
+  border: 1px solid black;
+  color: #fcfcfc;
   border-radius: 48px;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.4px;
   cursor: pointer;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.09);
+} 
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 4px;
 }
 
-span, p{
-  margin: 0;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  color: #555;
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

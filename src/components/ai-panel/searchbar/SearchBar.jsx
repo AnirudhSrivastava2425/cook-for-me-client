@@ -21,14 +21,15 @@ const SearchBar = ({ val, changeMethod }) => {
                 <textarea
                     name="input"
                     id="input"
-                    placeholder='Provide ingredients, cuisine style, mood etc.'
+                    placeholder='Provide ingredients, dietary preference, or mood...'
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     ref={inputRef}
                     onInput={handleInput}
+                    rows={1}
                 >
                 </textarea>
-                <button onClick={()=>changeMethod(value)}>Go</button>
+                <button onClick={()=>changeMethod(value)}>Generate My Recipe</button>
             </div>
         </div>
     )

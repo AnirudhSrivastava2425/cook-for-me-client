@@ -13,80 +13,57 @@ const ChatUI = ({ input, output }) => {
             <div className="output-wrapper">
                 <div className="oup-msg-bub">
 
-                    <div className="obj-wrapper">
-                        <span
-                            className='heading'
-                        >Suggested for you: </span>
-                        <p
-                            className='opt-items'
-                        >
-                            {output.title}
-                        </p>
+                    <div className="recipe-section">
+                        <div className="deitTags">
+                            {output.dietaryTags[0] && output.dietaryTags.map((tags, i) => (
+                                <span key={i}>{tags}</span>
+                            ))}
+                        </div>
+                        <h2>{output.title}</h2>
                     </div>
 
-                    <div className="obj-wrapper">
-                        <span
-                            className='heading'
-                        >Items you need: </span>
-                        {
-                            output.ingredients.map((item) => (
-                                <p
-                                    className='opt-items'
-                                >
-                                    {item}
-                                </p>
-                            ))
-                        }
-
+                    <div className="recipe-section">
+                        <h3>Health Insights</h3>
+                        <div className="stats-boxes">
+                            <div className="stat-inner">
+                                <span>{output.nutrition.calories}</span>
+                                <p>kcal</p>
+                            </div>
+                            <div className="stat-inner">
+                                <span>{output.nutrition.protein}</span>
+                                <p>protein</p>
+                            </div>
+                            <div className="stat-inner">
+                                <span>{output.nutrition.carbs}</span>
+                                <p>carbs</p>
+                            </div>
+                            <div className="stat-inner">
+                                <span>{output.nutrition.fat}</span>
+                                <p>fat</p>
+                            </div>
+                        </div>
                     </div>
 
-
-                    <div className="obj-wrapper">
-                        <span
-                            className='heading'
-                        >How to cook: </span>
-                        {
-                            output.steps.map((item,index) => (
-                                <p
-                                    className='opt-items'
-                                >
-                                    Step {index+1}: {item}
-                                </p>
-                            ))
-                        }
+                    <div className="recipe-section">
+                        <h3>What You’ll Need</h3>
+                        <ul>
+                            {output.ingredients.map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
+                        </ul>
                     </div>
 
 
-                    <div className="obj-wrapper">
-                        <span
-                            className='heading'
-                        >Nutrition: </span>
-                        {
-                            Object.keys(output.nutrition).map(item => (
-                                <p
-                                    className='opt-items'
-                                >
-                                    {item}: {output.nutrition[item]}
-                                </p>
-                            ))
-                        }
+                    <div className="recipe-section">
+                        <h3>Cooking Instructions</h3>
+                        {output.steps.map((item,i) => (
+                            <div key={i} className="instruction-box">
+                                <span>Step {i+1}</span>
+                                <p>{item}</p>
+                            </div>
+                        ))}
                     </div>
 
-
-                    <div className="obj-wrapper">
-                        <span
-                            className='heading'
-                        >Dietary Tags: </span>
-                        {
-                            output.dietaryTags.map(item => (
-                                <p
-                                    className='opt-items'
-                                >
-                                    {item}
-                                </p>
-                            ))
-                        }
-                    </div>
 
                 </div>
             </div>
