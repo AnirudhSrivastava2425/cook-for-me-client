@@ -1,6 +1,6 @@
 .panel-wrapper{
-    /* width: 800px; */
-    width: calc(100vw - 256px);
+    width: 100vw;
+    /* width: calc(100vw - 256px); */
     padding: 24px;
     display: flex;
     flex-direction: column;

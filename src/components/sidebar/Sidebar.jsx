@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import CloseImg from '../../assets/icon/close.png'
+import CloseImg from '../../assets/icon/menu-close.svg'
+import CloseOpen from '../../assets/icon/menu.svg'
 import './sidebar.css'
 
 const Sidebar = () => {
