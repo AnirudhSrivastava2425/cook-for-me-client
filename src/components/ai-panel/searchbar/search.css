@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     gap: 16px;
-    width: 100%;
     margin-top: 48px;
+    position: fixed;
     bottom: 16px;
     width: 800px;
 }
