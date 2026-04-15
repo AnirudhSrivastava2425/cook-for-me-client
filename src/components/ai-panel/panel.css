@@ -39,5 +39,6 @@ h1,h3{
     letter-spacing: 0.4px;
 }
 .conversations{
-    width: 100%;
+    width: 800px;
+    padding-bottom: 120px;
 }
