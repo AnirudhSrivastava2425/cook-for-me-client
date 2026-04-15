@@ -9,7 +9,7 @@ const AIPanel = () => {
     const [conversation, setConversation] = useState([])
 
     const getRecipe = async (val) => {
-        let result = await fetch('http://localhost:3000/api/generate-recipe', {
+        let result = await fetch('https://cook-for-me-server.onrender.com/api/generate-recipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
