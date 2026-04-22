@@ -10,5 +10,6 @@
   .main-wrapper {
     flex-direction: column-reverse;
     box-sizing: border-box;
+    width: 100%;
   }
 }

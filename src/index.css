@@ -9,9 +9,7 @@ body{
   background-attachment: fixed;
   letter-spacing: 0.4px;
 }
-/* #root{
-  min-height: 100vh;
-} */
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -52,4 +50,10 @@ button{
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media screen and (max-width:600px){
+  button{
+    font-size: 14px;
+  }
 }
