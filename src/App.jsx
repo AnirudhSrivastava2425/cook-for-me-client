@@ -5,7 +5,7 @@ function App() {
 
   return (
    <div className="main-wrapper">
-    {/* <Sidebar/> */}
+    <Sidebar/>
     <AIPanel/>
    </div>
   )

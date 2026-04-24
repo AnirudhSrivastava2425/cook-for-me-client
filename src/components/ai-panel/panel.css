@@ -1,6 +1,6 @@
 .panel-wrapper{
-    width: 100vw;
-    /* width: calc(100vw - 256px); */
+    /* width: 100vw; */
+    width: calc(100vw - 256px);
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     gap: 8px;
     min-height: 400px;
     box-sizing: border-box;
+    transition: 0.2s;
 }
 .conversations{
     display: flex;
@@ -43,7 +44,10 @@ h1,h3{
     max-width: 800px;
     padding-bottom: 120px;
 }
-
+.full-view{
+    width: 100vw;
+    transition: 0.2s;
+}
 @media screen and (max-width:600px) {
     .panel-wrapper{
         width: inherit;

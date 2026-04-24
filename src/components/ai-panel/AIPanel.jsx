@@ -3,6 +3,7 @@ import './panel.css'
 import SearchBar from './searchbar/SearchBar'
 import ChatUI from './chat/ChatUI'
 import useCookbookStore from '../../store/useCookbookStore'
+import useSidebar from '../../store/useSideBar'
 
 const AIPanel = () => {
     const [search, setSearch] = useState('')
@@ -10,7 +11,7 @@ const AIPanel = () => {
     const [conversation, setConversation] = useState([])
 
     const { name, chats, activeChatId, activeReq, fetchRecipe, isLoading } = useCookbookStore();
-
+    const {isSidebarActive} = useSidebar();
     // const handleChange = (value) => {
     //     fetchRecipe(value)
     // }
@@ -24,7 +25,8 @@ const AIPanel = () => {
     // using isLoading for dependency: for reference, right now flow is working because setLoading is happening before and after.
 
     return (
-        <div className='panel-wrapper'>
+        // <div className='panel-wrapper'>
+        <div className={isSidebarActive ? 'panel-wrapper':'panel-wrapper full-view'}>
             <div className="intro-text">
                 <h1>Your Perfect Recipe, Every Time</h1>
                 <h3>Turn the ingredients you already have into delicious, personalized recipes based on your taste, mood, and time.</h3>
