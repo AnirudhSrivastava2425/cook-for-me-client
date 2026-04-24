@@ -12,6 +12,12 @@
   left: 16px;
   transition: 0.2s;
 }
+@media screen and (max-width: 600px) {
+  .sidebar-wrapper {
+    width: 93vw;
+    z-index: 10;
+  }
+}
 
 .sidebar-closed{
   width: 60px;
@@ -19,11 +25,3 @@
   overflow: hidden;
 }
 
-/* @media screen and (max-width: 600px) {
-  .sidebar-wrapper {
-    width: 80%;
-      
-    min-height: 600px;
-      max-height: fit-content;
-  }
-} */
