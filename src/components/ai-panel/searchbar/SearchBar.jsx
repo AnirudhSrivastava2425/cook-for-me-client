@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './search.css'
 import { useDebounce } from '../../../hooks/useDebounce'
+import useCookbookStore from '../../../store/useCookbookStore'
 
-const SearchBar = ({ val, changeMethod }) => {
+const SearchBar = () => {
 
-    const [value, setValue] = useState(val)
+    const [value, setValue] = useState('')
 
     const inputRef = useRef()
+
+    const { name, chats, activeChatId, activeReq, fetchRecipe, isLoading } = useCookbookStore();
 
 
     const handleInput = () => {
@@ -14,6 +17,11 @@ const SearchBar = ({ val, changeMethod }) => {
         el.style.height = "auto";
         el.style.height = el.scrollHeight + "px";
     };
+
+    const handleFetchRecipe = () =>{
+        fetchRecipe(value);
+        setValue('')
+    }
 
     return (
         <div className='searchbar-wrapper'>
@@ -29,7 +37,7 @@ const SearchBar = ({ val, changeMethod }) => {
                     rows={1}
                 >
                 </textarea>
-                <button onClick={()=>changeMethod(value)}>Generate My Recipe</button>
+                <button onClick={handleFetchRecipe}>Generate My Recipe</button>
             </div>
         </div>
     )

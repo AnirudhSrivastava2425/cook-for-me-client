@@ -9,52 +9,19 @@ const AIPanel = () => {
     const [loading, setLoading] = useState(null)
     const [conversation, setConversation] = useState([])
 
-    const { name, chats, activeChatId, fetchRecipe, isLoading } = useCookbookStore();
+    const { name, chats, activeChatId, activeReq, fetchRecipe, isLoading } = useCookbookStore();
 
-    // const getRecipe = async (val) => {
-    //     let result = await fetch('https://cook-for-me-server.onrender.com/api/generate-recipe', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             message: val
-    //         })
-    //     })
-    //     let recipe = await result.json();
-    //     return recipe
-    // }
-
-    // const handleChange = async (value) => {
+    // const handleChange = (value) => {
     //     fetchRecipe(value)
-
-    //     let uniqueKey = Date.now();
-
-    //     if (value.length === 0) {
-    //         return
-    //     }
-    //     setSearch(value)
-    //     setLoading(true)
-
-    //     let aiResponse = await getRecipe(value)
-
-
-    //     setLoading(false)
-
-
-    //     const newConversation = {
-    //         id: uniqueKey,
-    //         userRequest: value,
-    //         aiResponse: aiResponse.recipe
-    //     }
-
-    //     setConversation((prev) => ([...prev, newConversation]))
-    //     setSearch('')
-    //     // console.log(conversation)
     // }
-    const handleChange = (value) => {
-        fetchRecipe(value)
-    }
+    useEffect(() => {
+        let currChat = chats.map((chat)=>{
+            if (chat.id === activeChatId) {
+                setConversation(prev=>chat.conversation)
+            }
+        })    
+    },[isLoading])
+    // using isLoading for dependency: for reference, right now flow is working because setLoading is happening before and after.
 
     return (
         <div className='panel-wrapper'>
@@ -64,9 +31,6 @@ const AIPanel = () => {
 
             </div>
             {
-                isLoading && <ChatUI input={search} />
-            }
-            {
                 conversation.length > 0 && <div className="conversations">
                     {
                         conversation.map((items) => (
@@ -75,8 +39,13 @@ const AIPanel = () => {
                     }
                 </div>
             }
+            {
+                isLoading && <ChatUI input={activeReq} />
+            }
 
-            <SearchBar val={search} changeMethod={handleChange} />
+            <SearchBar val={search} 
+            // changeMethod={handleChange} 
+            />
         </div>
     )
 }

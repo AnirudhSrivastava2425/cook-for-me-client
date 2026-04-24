@@ -5,6 +5,7 @@ const useCookBookStore = create((set, get) => ({
     name: 'Anirudh',
     chats: [],
     activeChatId: null,
+    activeReq:null,
     isLoading: false,
 
     // Method to create new chat
@@ -25,6 +26,7 @@ const useCookBookStore = create((set, get) => ({
     fetchRecipe: async (inp) => {
 
         set({ isLoading: true })
+        set({ activeReq: inp })
         try {
             let result = await axios.post('https://cook-for-me-server.onrender.com/api/generate-recipe', {
                 message: inp
@@ -37,7 +39,7 @@ const useCookBookStore = create((set, get) => ({
                 aiResponse: newRecipe
             }
 
-            let { activeChatId } = get();
+            let { activeChatId,chats } = get();
 
             if (!activeChatId) {
                 const newChat = {
@@ -61,7 +63,8 @@ const useCookBookStore = create((set, get) => ({
                 ),
                 isLoading: false
             }))
-            console.log(newConversation)
+            chats = get().chats;
+            console.log(chats)
         } catch (error) {
             set({isLoading: false})
             console.log(error)
